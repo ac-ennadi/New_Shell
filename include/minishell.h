@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 18:27:40 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/17 19:47:17 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,38 @@ extern "C"
 
 extern int	g_last_exit_code;
 
+# ifdef __cplusplus
+typedef class s_token
+# else
 typedef struct s_token
+# endif
 {
+# ifdef __cplusplus
+public:
+# endif
 	char			*str;
 	char			*str_backup;
 	bool			var_exists;
-	int				type;
-	int				status;
+	int			type;
+	int			status;
 	bool			join;
+# ifdef __cplusplus
+	s_token			*prev;
+	s_token			*next;
+# else
 	struct s_token	*prev;
 	struct s_token	*next;
-}	t_token;
+# endif
+}t_token;
+# ifdef __cplusplus
+typedef class s_io_fds
+# else
 typedef struct s_io_fds
+# endif
 {
+# ifdef __cplusplus
+public:
+# endif
 	char	*infile;
 	char	*outfile;
 	char	*heredoc_delimiter;
@@ -67,20 +86,39 @@ typedef struct s_io_fds
 	int		stdin_backup;
 	int		stdout_backup;
 }	t_io_fds;
+# ifdef __cplusplus
+typedef class s_command
+# else
 typedef struct s_command
+# endif
 {
+# ifdef __cplusplus
+public:
+# endif
 	char				*command;
 	char				*path;
 	char				**args;
 	bool				pipe_output;
 	int					*pipe_fd;
 	t_io_fds			*io_fds;
+# ifdef __cplusplus
+	s_command		*next;
+	s_command		*prev;
+# else
 	struct s_command	*next;
 	struct s_command	*prev;
+# endif
 }	t_command;
 
+# ifdef __cplusplus
+typedef class s_data
+# else
 typedef struct s_data
+# endif
 {
+# ifdef __cplusplus
+public:
+# endif
 	bool		interactive;
 	t_token		*token;
 	char		*user_input;
