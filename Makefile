@@ -1,5 +1,5 @@
 # Program file name
-NAME	= minishell
+NAME	= newshell
 
 # Compiler and compilation flags
 CC		= clang

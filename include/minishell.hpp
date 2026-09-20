@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/18 14:28:35 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 15:25:26 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ extern "C"
 }
 # endif
 
-# define PROMPT "Minishell>$ "
-# define HEREDOC_NAME "/tmp/.minishell_heredoc_"
+# define PROMPT "Newshell>$ "
+# define HEREDOC_NAME "/tmp/.newshell_heredoc_"
 
 # define CMD_NOT_FOUND 127
 # define CMD_NOT_EXECUTABLE 126

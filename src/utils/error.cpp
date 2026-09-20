@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/18 14:27:21 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 15:25:28 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	errmsg_cmd(const char *command, const char *detail,
 	bool	detail_quotes;
 
 	detail_quotes = add_detail_quotes(command);
-	msg = ft_strdup("minishell: ");
+	msg = ft_strdup("newshell: ");
 	if (command != nullptr)
 	{
 		msg = join_strs(msg, command);
@@ -66,7 +66,7 @@ void	errmsg(const char *errmsg, const char *detail, int quotes)
 {
 	char	*msg;
 
-	msg = ft_strdup("minishell: ");
+	msg = ft_strdup("newshell: ");
 	msg = join_strs(msg, errmsg);
 	if (quotes)
 		msg = join_strs(msg, " `");
@@ -81,7 +81,7 @@ void	errmsg(const char *errmsg, const char *detail, int quotes)
 
 bool	usage_message(bool return_val)
 {
-	ft_putendl_fd("Usage: ./minishell", 2);
-	ft_putendl_fd("Usage: ./minishell -c \"input line\"", 2);
+	ft_putendl_fd("Usage: ./newshell", 2);
+	ft_putendl_fd("Usage: ./newshell -c \"input line\"", 2);
 	return (return_val);
 }
