@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:34:46 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:28:35 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	**realloc_env_vars(t_data *data, int size)
 	return (new_env);
 }
 
-bool	set_env_var(t_data *data, char *key, char *value)
+bool	set_env_var(t_data *data, const char *key, char *value)
 {
 	int		idx;
 	char	*tmp;

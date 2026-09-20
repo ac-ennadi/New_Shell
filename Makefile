@@ -3,7 +3,6 @@ NAME	= minishell
 
 # Compiler and compilation flags
 CC		= clang
-CFLAGS	= -Werror -Wextra -Wall
 CXX		= clang++
 CXXFLAGS	= -Werror -Wextra -Wall
 
@@ -11,8 +10,6 @@ CXXFLAGS	= -Werror -Wextra -Wall
 OBJ_PATH = ./objects/
 CPP_SRC := $(wildcard src/*.cpp src/*/*.cpp src/*/*/*.cpp)
 CPP_OBJS := $(patsubst %.cpp,$(OBJ_PATH)%.o,$(CPP_SRC))
-C_SRC := $(wildcard src/*.c src/*/*.c src/*/*/*.c)
-C_OBJS := $(patsubst %.c,$(OBJ_PATH)%.o,$(C_SRC))
 INC		= -I ./include -I $(LIBFT_PATH)
 
 # Libft files and directories
@@ -29,16 +26,11 @@ $(OBJ_PATH):
 # C++ objects rule
 $(OBJ_PATH)%.o: %.cpp
 	mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) -Wno-writable-strings -c $< -o $@ $(INC)
-
-# C objects rule
-$(OBJ_PATH)%.o: %.c
-	mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ $(INC)
 
 # Project file rule
-$(NAME): $(CPP_OBJS) $(C_OBJS)
-	$(CXX) $(CXXFLAGS) $(CPP_OBJS) $(C_OBJS) -o $@ $(INC) $(LIBFT) -l readline
+$(NAME): $(CPP_OBJS)
+	$(CXX) $(CXXFLAGS) $(CPP_OBJS) -o $@ $(INC) $(LIBFT) -l readline
 
 # Libft rule
 $(LIBFT):

@@ -6,17 +6,12 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/18 14:23:33 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:28:35 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_HPP
 # define MINISHELL_HPP
-
-# ifdef __cplusplus
-extern "C"
-{
-# endif
 
 # include <unistd.h>
 # include <errno.h>
@@ -32,7 +27,14 @@ extern "C"
 # include <sys/types.h>
 # include <sys/wait.h>
 
+# ifdef __cplusplus
+extern "C"
+{
+# endif
 # include "../libft/libft.h"
+# ifdef __cplusplus
+}
+# endif
 
 # define PROMPT "Minishell>$ "
 # define HEREDOC_NAME "/tmp/.minishell_heredoc_"
@@ -45,38 +47,22 @@ extern "C"
 
 extern int	g_last_exit_code;
 
-# ifdef __cplusplus
-typedef class s_token
-# else
-typedef struct s_token
-# endif
+class t_token
 {
-# ifdef __cplusplus
 public:
-# endif
 	char			*str;
 	char			*str_backup;
 	bool			var_exists;
 	int			type;
 	int			status;
 	bool			join;
-# ifdef __cplusplus
-	s_token			*prev;
-	s_token			*next;
-# else
-	struct s_token	*prev;
-	struct s_token	*next;
-# endif
-}t_token;
-# ifdef __cplusplus
-typedef class s_io_fds
-# else
-typedef struct s_io_fds
-# endif
+	t_token			*prev;
+	t_token			*next;
+};
+
+class t_io_fds
 {
-# ifdef __cplusplus
 public:
-# endif
 	char	*infile;
 	char	*outfile;
 	char	*heredoc_delimiter;
@@ -85,40 +71,24 @@ public:
 	int		fd_out;
 	int		stdin_backup;
 	int		stdout_backup;
-}	t_io_fds;
-# ifdef __cplusplus
-typedef class s_command
-# else
-typedef struct s_command
-# endif
+};
+
+class t_command
 {
-# ifdef __cplusplus
 public:
-# endif
 	char				*command;
 	char				*path;
 	char				**args;
 	bool				pipe_output;
 	int					*pipe_fd;
 	t_io_fds			*io_fds;
-# ifdef __cplusplus
-	s_command		*next;
-	s_command		*prev;
-# else
-	struct s_command	*next;
-	struct s_command	*prev;
-# endif
-}	t_command;
+	t_command		*next;
+	t_command		*prev;
+};
 
-# ifdef __cplusplus
-typedef class s_data
-# else
-typedef struct s_data
-# endif
+class t_data
 {
-# ifdef __cplusplus
 public:
-# endif
 	bool		interactive;
 	t_token		*token;
 	char		*user_input;
@@ -127,7 +97,7 @@ public:
 	char		*old_working_dir;
 	t_command	*cmd;
 	pid_t		pid;
-}	t_data;
+};
 
 enum e_token_types
 {
@@ -157,9 +127,9 @@ void		init_io(t_command *cmd);
 void		exit_shell(t_data *data, int exno);
 
 // error.c
-int			errmsg_cmd(char *command, char *detail, char *error_message,
-				int error_nb);
-void		errmsg(char *errmsg, char *detail, int quotes);
+int			errmsg_cmd(const char *command, const char *detail,
+				const char *error_message, int error_nb);
+void			errmsg(const char *errmsg, const char *detail, int quotes);
 bool		usage_message(bool return_val);
 
 // cleanup.c
@@ -281,12 +251,12 @@ void		parse_pipe(t_command **cmd, t_token **token_lst);
 
 // env.c
 int			env_var_count(char **env);
-int			get_env_var_index(char **env, char *var);
-char		*get_env_var_value(char **env, char *var);
-bool		is_valid_env_var_key(char *var);
+int			get_env_var_index(char **env, const char *var);
+char		*get_env_var_value(char **env, const char *var);
+bool			is_valid_env_var_key(const char *var);
 
 // env_set.c
-bool		set_env_var(t_data *data, char *key, char *value);
+bool		set_env_var(t_data *data, const char *key, char *value);
 bool		remove_env_var(t_data *data, int idx);
 
 // builtins
@@ -333,9 +303,5 @@ bool		get_heredoc(t_data *data, t_io_fds *io);
 // debug.c
 void		print_cmd_list(t_data *data);
 void		print_token_list(t_token **tokens);
-
-# ifdef __cplusplus
-}
-# endif
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:15:07 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:29:02 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	print_cmd_list(t_data *data)
 	printf("\n");
 }
 
-void	print_token_type(t_token *token, char *prefix)
+void	print_token_type(t_token *token, const char *prefix)
 {
 	printf("%s", prefix);
 	if (token->type == SPACES)

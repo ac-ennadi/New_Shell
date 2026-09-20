@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_cmd.c                                      :+:      :+:    :+:   */
+/*   execute_cmd.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:14:59 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:27:26 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	execute_sys_bin(t_data *data, t_command *cmd)
 	if (!cmd->path)
 		return (CMD_NOT_FOUND);
 	if (execve(cmd->path, cmd->args, data->env) == -1)
-		errmsg_cmd("execve", NULL, strerror(errno), errno);
+		errmsg_cmd("execve", nullptr, strerror(errno), errno);
 	return (EXIT_FAILURE);
 }
 
@@ -56,7 +56,7 @@ static int	execute_local_bin(t_data *data, t_command *cmd)
 	if (ret != 0)
 		return (ret);
 	if (execve(cmd->command, cmd->args, data->env) == -1)
-		return (errmsg_cmd("execve", NULL, strerror(errno), errno));
+		return (errmsg_cmd("execve", nullptr, strerror(errno), errno));
 	return (EXIT_FAILURE);
 }
 
@@ -65,7 +65,7 @@ int	execute_command(t_data *data, t_command *cmd)
 	int	ret;
 
 	if (!cmd || !cmd->command)
-		exit_shell(data, errmsg_cmd("child", NULL,
+		exit_shell(data, errmsg_cmd("child", nullptr,
 				"parsing error: no command to execute!", EXIT_FAILURE));
 	if (!check_infile_outfile(cmd->io_fds))
 		exit_shell(data, EXIT_FAILURE);

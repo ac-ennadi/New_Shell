@@ -6,13 +6,13 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:14:57 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:27:21 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/minishell.hpp"
 
-char	*join_strs(char *str, char *add)
+char	*join_strs(char *str, const char *add)
 {
 	char	*tmp;
 
@@ -26,7 +26,7 @@ char	*join_strs(char *str, char *add)
 	return (str);
 }
 
-static bool	add_detail_quotes(char *command)
+static bool	add_detail_quotes(const char *command)
 {
 	if (ft_strncmp(command, "export", 7) == 0
 		|| ft_strncmp(command, "unset", 6) == 0)
@@ -34,7 +34,8 @@ static bool	add_detail_quotes(char *command)
 	return (false);
 }
 
-int	errmsg_cmd(char *command, char *detail, char *error_message, int error_nb)
+int	errmsg_cmd(const char *command, const char *detail,
+	const char *error_message, int error_nb)
 {
 	char	*msg;
 	bool	detail_quotes;
@@ -61,7 +62,7 @@ int	errmsg_cmd(char *command, char *detail, char *error_message, int error_nb)
 	return (error_nb);
 }
 
-void	errmsg(char *errmsg, char *detail, int quotes)
+void	errmsg(const char *errmsg, const char *detail, int quotes)
 {
 	char	*msg;
 

@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:34:48 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:28:22 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	env_var_count(char **env)
 	return (i);
 }
 
-int	get_env_var_index(char **env, char *var)
+int	get_env_var_index(char **env, const char *var)
 {
 	int		i;
 	char	*tmp;
@@ -44,7 +44,7 @@ int	get_env_var_index(char **env, char *var)
 	return (-1);
 }
 
-char	*get_env_var_value(char **env, char *var)
+char	*get_env_var_value(char **env, const char *var)
 {
 	int		i;
 	char	*tmp;
@@ -66,7 +66,7 @@ char	*get_env_var_value(char **env, char *var)
 	return (nullptr);
 }
 
-bool	is_valid_env_var_key(char *var)
+bool	is_valid_env_var_key(const char *var)
 {
 	int	i;
 

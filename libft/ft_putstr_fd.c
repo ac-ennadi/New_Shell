@@ -6,13 +6,13 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 05:37:17 by acennadi          #+#    #+#             */
-/*   Updated: 2024/11/04 18:06:14 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:28:47 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(const char *s, int fd)
 {
 	if (!s)
 		return ;

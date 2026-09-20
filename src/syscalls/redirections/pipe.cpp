@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipe.c                                             :+:      :+:    :+:   */
+/*   pipe.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:15:02 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/18 14:26:10 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ bool	create_pipes(t_data *data)
 	{
 		if (tmp->pipe_output || (tmp->prev && tmp->prev->pipe_output))
 		{
-			fd = malloc(sizeof * fd * 2);
+			fd = static_cast<int *>(malloc(sizeof *fd * 2));
 			if (!fd || pipe(fd) != 0)
 			{
 				free_data(data, false);
