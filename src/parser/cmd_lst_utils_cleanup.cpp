@@ -29,8 +29,8 @@ void	lst_clear_cmd(t_command **lst, void (*del)(void *))
 {
 	t_command	*temp;
 
-	temp = NULL;
-	while (*lst != NULL)
+	temp = nullptr;
+	while (*lst != nullptr)
 	{
 		temp = (*lst)->next;
 		lst_delone_cmd(*lst, del);

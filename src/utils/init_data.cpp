@@ -59,18 +59,18 @@ bool	init_data(t_data *data, char **env)
 {
 	if (!init_env(data, env))
 	{
-		errmsg_cmd("Fatal", NULL, "Could not initialize environment", 1);
+		errmsg_cmd("Fatal", nullptr, "Could not initialize environment", 1);
 		return (false);
 	}
 	if (!init_wds(data))
 	{
-		errmsg_cmd("Fatal", NULL, "Could not initialize working directories",
+		errmsg_cmd("Fatal", nullptr, "Could not initialize working directories",
 			1);
 		return (false);
 	}
-	data->token = NULL;
-	data->user_input = NULL;
-	data->cmd = NULL;
+	data->token = nullptr;
+	data->user_input = nullptr;
+	data->cmd = nullptr;
 	data->pid = -1;
 	g_last_exit_code = 0;
 	return (true);
@@ -83,9 +83,9 @@ void	init_io(t_command *cmd)
 		cmd->io_fds = (t_io_fds *)malloc(sizeof * cmd->io_fds);
 		if (!cmd->io_fds)
 			return ;
-		cmd->io_fds->infile = NULL;
-		cmd->io_fds->outfile = NULL;
-		cmd->io_fds->heredoc_delimiter = NULL;
+		cmd->io_fds->infile = nullptr;
+		cmd->io_fds->outfile = nullptr;
+		cmd->io_fds->heredoc_delimiter = nullptr;
 		cmd->io_fds->heredoc_quotes = false;
 		cmd->io_fds->fd_in = -1;
 		cmd->io_fds->fd_out = -1;

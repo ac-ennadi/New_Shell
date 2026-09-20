@@ -80,7 +80,7 @@ static bool	is_quiet_mode(t_data *data)
 	cmd = data->cmd;
 	if (!cmd)
 		return (false);
-	if (cmd->next != NULL || cmd->prev != NULL)
+	if (cmd->next != nullptr || cmd->prev != nullptr)
 		return (true);
 	return (false);
 }
@@ -104,7 +104,7 @@ int	exit_builtin(t_data *data, char **args)
 			exit_code = errmsg_cmd("exit", args[1],
 					"numeric argument required", 2);
 		else if (args[2])
-			return (errmsg_cmd("exit", NULL, "too many arguments", 1));
+			return (errmsg_cmd("exit", nullptr, "too many arguments", 1));
 	}
 	exit_shell(data, exit_code);
 	return (2);

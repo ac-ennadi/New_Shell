@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:15:08 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/17 19:34:48 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*get_env_var_value(char **env, char *var)
 
 	tmp = ft_strjoin(var, "=");
 	if (!tmp)
-		return (NULL);
+		return (nullptr);
 	i = 0;
 	while (env[i])
 	{
@@ -63,7 +63,7 @@ char	*get_env_var_value(char **env, char *var)
 		i++;
 	}
 	free_ptr(tmp);
-	return (NULL);
+	return (nullptr);
 }
 
 bool	is_valid_env_var_key(char *var)

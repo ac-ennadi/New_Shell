@@ -22,7 +22,7 @@ int	unset_builtin(t_data *data, char **args)
 	i = 1;
 	while (args[i])
 	{
-		if (!is_valid_env_var_key(args[i]) || ft_strchr(args[i], '=') != NULL)
+		if (!is_valid_env_var_key(args[i]) || ft_strchr(args[i], '=') != nullptr)
 		{
 			errmsg_cmd("unset", args[i], "not a valid identifier", false);
 			ret = EXIT_FAILURE;

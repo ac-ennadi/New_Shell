@@ -18,10 +18,10 @@ bool	remove_old_file_ref(t_io_fds *io, bool infile)
 	{
 		if (io->fd_in == -1 || (io->outfile && io->fd_out == -1))
 			return (false);
-		if (io->heredoc_delimiter != NULL)
+		if (io->heredoc_delimiter != nullptr)
 		{
 			free_ptr(io->heredoc_delimiter);
-			io->heredoc_delimiter = NULL;
+			io->heredoc_delimiter = nullptr;
 			unlink(io->infile);
 		}
 		free_ptr(io->infile);
@@ -44,12 +44,12 @@ static void	open_infile(t_io_fds *io, char *file, char *original_filename)
 	io->infile = ft_strdup(file);
 	if (io->infile && io->infile[0] == '\0')
 	{
-		errmsg_cmd(original_filename, NULL, "ambiguous redirect", false);
+		errmsg_cmd(original_filename, nullptr, "ambiguous redirect", false);
 		return ;
 	}
 	io->fd_in = open(io->infile, O_RDONLY);
 	if (io->fd_in == -1)
-		errmsg_cmd(io->infile, NULL, strerror(errno), false);
+		errmsg_cmd(io->infile, nullptr, strerror(errno), false);
 }
 
 void	parse_input(t_command **last_cmd, t_token **token_lst)

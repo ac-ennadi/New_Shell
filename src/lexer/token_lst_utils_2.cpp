@@ -29,13 +29,13 @@ t_token	*insert_lst_between(t_token **head, t_token *to_del, t_token *insert)
 	t_token	*temp;
 
 	temp = *head;
-	if (temp == NULL)
+	if (temp == nullptr)
 		*head = insert;
 	else if (temp == to_del)
 	{
 		*head = insert;
 		insert->next = temp->next;
-		if (temp->next != NULL)
+		if (temp->next != nullptr)
 			temp->next->prev = insert;
 	}
 	else

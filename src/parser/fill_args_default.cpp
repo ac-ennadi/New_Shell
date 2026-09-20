@@ -47,7 +47,7 @@ int	create_args_default_mode(t_token **token_node, t_command *last_cmd)
 		i++;
 		temp = temp->next;
 	}
-	last_cmd->args[i] = NULL;
+	last_cmd->args[i] = nullptr;
 	*token_node = temp;
 	return (SUCCESS);
 }
@@ -71,7 +71,7 @@ static char	**copy_default_in_new_tab(
 		i++;
 		temp = temp->next;
 	}
-	new_tab[i] = NULL;
+	new_tab[i] = nullptr;
 	return (new_tab);
 }
 

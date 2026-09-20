@@ -60,7 +60,7 @@ int main(int ac, char **av, char **env)
 
 	ft_memset(&data, 0, sizeof(t_data));
 	if (!start_check(&data, ac, av) || !init_data(&data, env))
-		exit_shell(NULL, EXIT_FAILURE);
+		exit_shell(nullptr, EXIT_FAILURE);
 	if (data.interactive)
 		minishell_interactive(&data);
 	else

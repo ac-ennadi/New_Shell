@@ -36,7 +36,7 @@ char	*get_new_token_string(char *oldstr, char *var_value,
 	j = 0;
 	new_str = (char *)malloc(sizeof(char) * newstr_size);
 	if (!new_str)
-		return (NULL);
+		return (nullptr);
 	while (oldstr[i])
 	{
 		if (oldstr[i] == '$' && i == index)

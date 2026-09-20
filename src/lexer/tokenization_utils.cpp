@@ -26,7 +26,7 @@ int	save_separator(t_token **token_lst, char *str, int index, int type)
 		while (i < 2)
 			sep[i++] = str[index++];
 		sep[i] = '\0';
-		lst_add_back_token(token_lst, lst_new_token(sep, NULL, type, DEFAULT));
+		lst_add_back_token(token_lst, lst_new_token(sep, nullptr, type, DEFAULT));
 	}
 	else
 	{
@@ -36,7 +36,7 @@ int	save_separator(t_token **token_lst, char *str, int index, int type)
 		while (i < 1)
 			sep[i++] = str[index++];
 		sep[i] = '\0';
-		lst_add_back_token(token_lst, lst_new_token(sep, NULL, type, DEFAULT));
+		lst_add_back_token(token_lst, lst_new_token(sep, nullptr, type, DEFAULT));
 	}
 	return (0);
 }

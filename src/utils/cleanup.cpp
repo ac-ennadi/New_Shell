@@ -17,7 +17,7 @@ void	free_data(t_data *data, bool clear_history)
 	if (data && data->user_input)
 	{
 		free_ptr(data->user_input);
-		data->user_input = NULL;
+		data->user_input = nullptr;
 	}
 	if (data && data->token)
 		lstclear_token(&data->token, &free_ptr);
@@ -46,7 +46,7 @@ void	close_fds(t_command *cmds, bool close_backups)
 		if (close_backups)
 			restore_io(cmds->io_fds);
 	}
-	close_pipe_fds(cmds, NULL);
+	close_pipe_fds(cmds, nullptr);
 }
 
 void	free_io(t_io_fds *io)
@@ -79,20 +79,20 @@ void	free_str_tab(char **tab)
 			if (tab[i])
 			{
 				free_ptr(tab[i]);
-				tab[i] = NULL;
+				tab[i] = nullptr;
 			}
 			i++;
 		}
 		free(tab);
-		tab = NULL;
+		tab = nullptr;
 	}
 }
 
 void	free_ptr(void *ptr)
 {
-	if (ptr != NULL)
+	if (ptr != nullptr)
 	{
 		free(ptr);
-		ptr = NULL;
+		ptr = nullptr;
 	}
 }

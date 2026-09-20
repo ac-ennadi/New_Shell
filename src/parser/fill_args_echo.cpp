@@ -36,7 +36,7 @@ int	create_args_echo_mode(t_token **token_node, t_command *last_cmd)
 		i++;
 		temp = temp->next;
 	}
-	last_cmd->args[i] = NULL;
+	last_cmd->args[i] = nullptr;
 	*token_node = temp;
 	return (SUCCESS);
 }

@@ -71,7 +71,7 @@ char	**copy_in_new_tab(int len, char **new_tab,
 		i++;
 		tmp = tmp->next;
 	}
-	new_tab[i] = NULL;
+	new_tab[i] = nullptr;
 	return (new_tab);
 }
 

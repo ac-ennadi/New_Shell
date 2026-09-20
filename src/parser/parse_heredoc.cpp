@@ -32,7 +32,7 @@ static char	*get_heredoc_name(void)
 
 	number = ft_itoa(i);
 	if (!number)
-		return (NULL);
+		return (nullptr);
 	name = ft_strjoin(HEREDOC_NAME, number);
 	free(number);
 	i++;

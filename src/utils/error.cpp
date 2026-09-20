@@ -41,12 +41,12 @@ int	errmsg_cmd(char *command, char *detail, char *error_message, int error_nb)
 
 	detail_quotes = add_detail_quotes(command);
 	msg = ft_strdup("minishell: ");
-	if (command != NULL)
+	if (command != nullptr)
 	{
 		msg = join_strs(msg, command);
 		msg = join_strs(msg, ": ");
 	}
-	if (detail != NULL)
+	if (detail != nullptr)
 	{
 		if (detail_quotes)
 			msg = join_strs(msg, "`");

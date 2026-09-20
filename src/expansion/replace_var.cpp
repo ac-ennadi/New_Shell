@@ -60,7 +60,7 @@ static char	*erase_and_replace(t_token **token_node, char *str,
 
 int	replace_var(t_token **token_node, char *var_value, int index)
 {
-	if (var_value == NULL)
+	if (var_value == nullptr)
 	{
 		if (erase_var(token_node, (*token_node)->str, index) == 1)
 		{
@@ -71,7 +71,7 @@ int	replace_var(t_token **token_node, char *var_value, int index)
 	else
 	{
 		if (erase_and_replace(token_node, (*token_node)->str,
-				var_value, index) == NULL)
+				var_value, index) == nullptr)
 		{
 			free_ptr(var_value);
 			return (1);
@@ -85,13 +85,13 @@ char	*replace_str_heredoc(char *str, char *var_value, int index)
 {
 	char	*tmp;
 
-	tmp = NULL;
-	if (var_value == NULL)
+	tmp = nullptr;
+	if (var_value == nullptr)
 		*str = '\0';
 	else
 	{
 		tmp = str;
-		str = erase_and_replace(NULL, str, var_value, index);
+		str = erase_and_replace(nullptr, str, var_value, index);
 		free_ptr(tmp);
 	}
 	free_ptr(var_value);

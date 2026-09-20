@@ -47,7 +47,7 @@ static char	*get_expanded_var_line(t_data *data, char *line)
 
 	words = ft_split(line, ' ');
 	if (!words)
-		return (NULL);
+		return (nullptr);
 	i = 0;
 	while (words[i])
 	{
@@ -55,7 +55,7 @@ static char	*get_expanded_var_line(t_data *data, char *line)
 		{
 			words[i] = var_expander_heredoc(data, words[i]);
 			if (!words[i])
-				return (NULL);
+				return (nullptr);
 		}
 		i++;
 	}
@@ -65,7 +65,7 @@ static char	*get_expanded_var_line(t_data *data, char *line)
 static bool	evaluate_heredoc_line(t_data *data, char **line,
 		t_io_fds *io, bool *ret)
 {
-	if (*line == NULL)
+	if (*line == nullptr)
 	{
 		errmsg_cmd("warning",
 			"here-document delimited by end-of-file: wanted",
@@ -97,7 +97,7 @@ bool	fill_heredoc(t_data *data, t_io_fds *io, int fd)
 	bool	ret;
 
 	ret = false;
-	line = NULL;
+	line = nullptr;
 	while (1)
 	{
 		set_signals_interactive();

@@ -83,7 +83,7 @@ char	*var_expander_heredoc(t_data *data, char *str)
 		if (str[i] == '$'
 			&& is_next_char_a_sep(str[i + 1]) == false
 			&& var_between_quotes(str, i) == false)
-			str = replace_str_heredoc(str, recover_val(NULL, str + i, data), i);
+			str = replace_str_heredoc(str, recover_val(nullptr, str + i, data), i);
 		else
 			i++;
 	}

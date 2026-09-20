@@ -28,8 +28,8 @@ static bool	input_is_space(char *input)
 
 bool	parse_user_input(t_data *data)
 {
-	if (data->user_input == NULL)
-		exit_builtin(data, NULL);
+	if (data->user_input == nullptr)
+		exit_builtin(data, nullptr);
 	else if (ft_strcmp(data->user_input, "\0") == 0)
 		return (false);
 	else if (input_is_space(data->user_input))

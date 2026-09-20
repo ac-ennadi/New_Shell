@@ -56,11 +56,11 @@ void	print_cmd_list(t_data *data)
 		print_cmd_args(cmd);
 		printf("\tPipe_output = %d\n", cmd->pipe_output);
 		print_cmd_io(cmd);
-		if (cmd->prev == NULL)
+		if (cmd->prev == nullptr)
 			printf("\tprev = NULL\n");
 		else
 			printf("\tprev = %s\n", cmd->prev->command);
-		if (cmd->next == NULL)
+		if (cmd->next == nullptr)
 			printf("\tnext = NULL\n");
 		else
 			printf("\tnext = %s\n", cmd->next->command);

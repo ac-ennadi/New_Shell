@@ -14,13 +14,13 @@
 
 static void	initialize_cmd(t_command **cmd)
 {
-	(*cmd)->command = NULL;
-	(*cmd)->path = NULL;
-	(*cmd)->args = NULL;
+	(*cmd)->command = nullptr;
+	(*cmd)->path = nullptr;
+	(*cmd)->args = nullptr;
 	(*cmd)->pipe_output = false;
 	(*cmd)->pipe_fd = 0;
-	(*cmd)->prev = NULL;
-	(*cmd)->next = NULL;
+	(*cmd)->prev = nullptr;
+	(*cmd)->next = nullptr;
 }
 
 t_command	*lst_new_cmd(bool value)
@@ -29,7 +29,7 @@ t_command	*lst_new_cmd(bool value)
 
 	new_node = (t_command *)malloc(sizeof(t_command));
 	if (!(new_node))
-		return (NULL);
+		return (nullptr);
 	ft_memset(new_node, 0, sizeof(t_command));
 	new_node->pipe_output = value;
 	initialize_cmd(&new_node);
@@ -41,14 +41,14 @@ void	lst_add_back_cmd(t_command **alst, t_command *new_node)
 	t_command	*start;
 
 	start = *alst;
-	if (start == NULL)
+	if (start == nullptr)
 	{
 		*alst = new_node;
 		return ;
 	}
 	if (alst && *alst && new_node)
 	{
-		while (start->next != NULL)
+		while (start->next != nullptr)
 			start = start->next;
 		start->next = new_node;
 		new_node->prev = start;
@@ -57,7 +57,7 @@ void	lst_add_back_cmd(t_command **alst, t_command *new_node)
 
 t_command	*lst_last_cmd(t_command *cmd)
 {
-	while (cmd->next != NULL)
+	while (cmd->next != nullptr)
 		cmd = cmd->next;
 	return (cmd);
 }

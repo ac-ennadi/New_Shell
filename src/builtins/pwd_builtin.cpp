@@ -29,6 +29,6 @@ int	pwd_builtin(t_data *data, char **args)
 		ft_putendl_fd(cwd, STDOUT_FILENO);
 		return (EXIT_SUCCESS);
 	}
-	errmsg_cmd("pwd", NULL, strerror(errno), errno);
+	errmsg_cmd("pwd", nullptr, strerror(errno), errno);
 	return (EXIT_FAILURE);
 }

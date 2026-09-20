@@ -6,7 +6,7 @@
 /*   By: acennadi <acennadi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:07:21 by acennadi          #+#    #+#             */
-/*   Updated: 2026/09/17 19:15:14 by acennadi         ###   ########.fr       */
+/*   Updated: 2026/09/17 19:35:51 by acennadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ t_token	*lst_new_token(char *str, char *str_backup, int type, int status)
 
 	new_node = (t_token *)malloc(sizeof(t_token) * 1);
 	if (!(new_node))
-		return (NULL);
+		return (nullptr);
 	new_node->str = str;
 	new_node->str_backup = str_backup;
 	new_node->var_exists = false;
 	new_node->type = type;
 	new_node->status = status;
 	new_node->join = false;
-	new_node->prev = NULL;
-	new_node->next = NULL;
+	new_node->prev = nullptr;
+	new_node->next = nullptr;
 	return (new_node);
 }
 
@@ -35,14 +35,14 @@ void	lst_add_back_token(t_token **alst, t_token *new_node)
 	t_token	*start;
 
 	start = *alst;
-	if (start == NULL)
+	if (start == nullptr)
 	{
 		*alst = new_node;
 		return ;
 	}
 	if (alst && *alst && new_node)
 	{
-		while (start->next != NULL)
+		while (start->next != nullptr)
 			start = start->next;
 		start->next = new_node;
 		new_node->prev = start;
@@ -54,12 +54,12 @@ void	lstdelone_token(t_token *lst, void (*del)(void *))
 	if (del && lst && lst->str)
 	{
 		(*del)(lst->str);
-		lst->str = NULL;
+		lst->str = nullptr;
 	}
 	if (del && lst && lst->str_backup)
 	{
 		(*del)(lst->str_backup);
-		lst->str_backup = NULL;
+		lst->str_backup = nullptr;
 	}
 	if (lst->prev)
 		lst->prev->next = lst->next;
@@ -72,8 +72,8 @@ void	lstclear_token(t_token **lst, void (*del)(void *))
 {
 	t_token	*tmp;
 
-	tmp = NULL;
-	while (*lst != NULL)
+	tmp = nullptr;
+	while (*lst != nullptr)
 	{
 		tmp = (*lst)->next;
 		lstdelone_token(*lst, del);

@@ -28,7 +28,7 @@ void	set_signals_interactive(void)
 	ignore_sigquit();
 	ft_memset(&act, 0, sizeof(act));
 	act.sa_handler = &signal_reset_prompt;
-	sigaction(SIGINT, &act, NULL);
+	sigaction(SIGINT, &act, nullptr);
 }
 
 void	signal_print_newline(int signal)
@@ -43,8 +43,8 @@ void	set_signals_noninteractive(void)
 
 	ft_memset(&act, 0, sizeof(act));
 	act.sa_handler = &signal_print_newline;
-	sigaction(SIGINT, &act, NULL);
-	sigaction(SIGQUIT, &act, NULL);
+	sigaction(SIGINT, &act, nullptr);
+	sigaction(SIGQUIT, &act, nullptr);
 }
 
 void	ignore_sigquit(void)
@@ -53,5 +53,5 @@ void	ignore_sigquit(void)
 
 	ft_memset(&act, 0, sizeof(act));
 	act.sa_handler = SIG_IGN;
-	sigaction(SIGQUIT, &act, NULL);
+	sigaction(SIGQUIT, &act, nullptr);
 }

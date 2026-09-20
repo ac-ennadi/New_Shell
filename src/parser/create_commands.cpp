@@ -25,7 +25,7 @@ static void	prep_no_arg_commands(t_data *data)
 		{
 			cmd->args = (char **)malloc(sizeof * cmd->args * 2);
 			cmd->args[0] = ft_strdup(cmd->command);
-			cmd->args[1] = NULL;
+			cmd->args[1] = nullptr;
 		}
 		cmd = cmd->next;
 	}
@@ -39,7 +39,7 @@ void	create_commands(t_data *data, t_token *token)
 	temp = token;
 	if (temp->type == END)
 		return ;
-	while (temp->next != NULL)
+	while (temp->next != nullptr)
 	{
 		if (temp == token)
 			lst_add_back_cmd(&data->cmd, lst_new_cmd(false));

@@ -43,7 +43,7 @@ static bool	change_dir(t_data *data, char *path)
 	char	*tmp;
 	char	cwd[PATH_MAX];
 
-	ret = NULL;
+	ret = nullptr;
 	if (chdir(path) != 0)
 		return (chdir_errno_mod(path));
 	ret = getcwd(cwd, PATH_MAX);
@@ -72,16 +72,16 @@ int	cd_builtin(t_data *data, char **args)
 	{
 		path = get_env_var_value(data->env, "HOME");
 		if (!path || *path == '\0' || ft_isspace(*path))
-			return (errmsg_cmd("cd", NULL, "HOME not set", EXIT_FAILURE));
+			return (errmsg_cmd("cd", nullptr, "HOME not set", EXIT_FAILURE));
 		return (!change_dir(data, path));
 	}
 	if (args[2])
-		return (errmsg_cmd("cd", NULL, "too many arguments", EXIT_FAILURE));
+		return (errmsg_cmd("cd", nullptr, "too many arguments", EXIT_FAILURE));
 	if (ft_strncmp(args[1], "-", 2) == 0)
 	{
 		path = get_env_var_value(data->env, "OLDPWD");
 		if (!path)
-			return (errmsg_cmd("cd", NULL, "OLDPWD not set", EXIT_FAILURE));
+			return (errmsg_cmd("cd", nullptr, "OLDPWD not set", EXIT_FAILURE));
 		return (!change_dir(data, path));
 	}
 	return (!change_dir(data, args[1]));

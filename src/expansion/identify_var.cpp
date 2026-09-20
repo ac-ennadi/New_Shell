@@ -64,7 +64,7 @@ char	*identify_var(char *str)
 	len = var_length(str);
 	var = ft_substr(str, start, len);
 	if (!var)
-		return (NULL);
+		return (nullptr);
 	tmp = ft_strjoin(var, "=");
 	free_ptr(var);
 	var = tmp;
