@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../../include/minishell.hpp"
 
 static void	print_cmd_args(t_command *cmd)
 {

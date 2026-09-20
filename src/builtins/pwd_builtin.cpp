@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../../include/minishell.hpp"
 
 int	pwd_builtin(t_data *data, char **args)
 {

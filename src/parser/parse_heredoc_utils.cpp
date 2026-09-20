@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../../include/minishell.hpp"
 
 static char	*make_str_from_tab(char **tab)
 {

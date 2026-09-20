@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../../include/minishell.hpp"
 
 static void	prep_no_arg_commands(t_data *data)
 {

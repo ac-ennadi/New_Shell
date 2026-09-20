@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../../include/minishell.hpp"
 
 t_token	*lst_new_token(char *str, char *str_backup, int type, int status)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/minishell.h"
+#include "../../../include/minishell.hpp"
 
 int	execute_builtin(t_data *data, t_command *cmd)
 {

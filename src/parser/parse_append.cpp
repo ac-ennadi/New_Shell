@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../../include/minishell.hpp"
 
 static void	open_outfile_append(t_io_fds *io, char *file, char *var_filename)
 {

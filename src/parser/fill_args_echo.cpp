@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minishell.h"
+#include "../../include/minishell.hpp"
 
 int	create_args_echo_mode(t_token **token_node, t_command *last_cmd)
 {

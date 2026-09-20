@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/minishell.h"
+#include "../../../include/minishell.hpp"
 
 bool	cmd_is_dir(char *cmd)
 {

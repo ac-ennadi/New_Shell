@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/minishell.h"
+#include "../../../include/minishell.hpp"
 
 static char	*find_valid_cmd_path(char *cmd, char **paths)
 {

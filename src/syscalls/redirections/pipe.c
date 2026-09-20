@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/minishell.h"
+#include "../../../include/minishell.hpp"
 
 void	close_pipe_fds(t_command *cmds, t_command *skip_cmd)
 {
